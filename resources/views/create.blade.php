@@ -99,7 +99,7 @@
                         </div>
                     </div>
                     <div class="col d-flex justify-content-between">
-                        <a href="#" type="button" class="btn btn-danger  mt-3 ">Back</a>
+                        <a href="{{ route('employee.index') }}" type="button" class="btn btn-danger  mt-3 ">Back</a>
                         <input type="submit" value="Tambah"  class="btn btn-success mt-3">
                     </div>
                     {{-- <button type="submit" class="btn btn-primary mt-3">Tambah</button> --}}
