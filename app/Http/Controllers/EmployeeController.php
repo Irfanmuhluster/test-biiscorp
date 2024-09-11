@@ -16,8 +16,17 @@ class EmployeeController extends Controller
     public function index(Request $request)
     {
         //
+        $search = $request->input('search.value');
+        // dd($search);
         if ($request->ajax()) {
             $data = Employee::query();
+            if (!empty($search)) {
+                $data->where(function($q) use ($search) {
+                    $q->where('name', 'like', "%{$search}%")
+                      ->orWhere('email', 'like', "%{$search}%")
+                      ->orWhere('address', 'like', "%{$search}%");
+                });
+            }
             return DataTables::eloquent($data)->toJson();
         }
     }
